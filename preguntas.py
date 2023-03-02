@@ -11,7 +11,11 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 
 
 """
-
+lst = []
+with open("data.csv") as f:
+    lines = f.readlines()
+    for i in lines:
+        lst.append(i.replace("\n", ""))
 
 def pregunta_01():
     """
@@ -21,7 +25,13 @@ def pregunta_01():
     214
 
     """
-    return
+    aux = []
+    aux = [i.split("\t")[1] for i in lst]
+    c = 0
+    for i in aux:
+        v = int(i)
+        c += v
+    return c
 
 
 def pregunta_02():
